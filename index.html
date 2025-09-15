@@ -7,71 +7,91 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg1:#0f1724; --bg2:#071029;
-      --card:#0f1724; --muted:#94a3b8; --accent:#3dd3c1;
+      --bg-1: #020617;
+      --bg-2: #071029;
+      --glass: rgba(255,255,255,0.03);
+      --muted: #94a3b8;
+      --accent1: #3dd3c1;
+      --accent2: #60a0ff;
+      --card: rgba(255,255,255,0.02);
+      --maxw: 1100px;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#e6eef6; min-height:100vh; -webkit-font-smoothing:antialiased;}
-    .wrap{max-width:1100px;margin:28px auto;padding:20px;}
-    header{display:flex;align-items:center;justify-content:space-between; gap:16px; margin-bottom:18px;}
-    .brand{display:flex;gap:16px;align-items:center}
-    .avatar{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#8ee7d6, #60a0ff);display:flex;align-items:center;justify-content:center;color:#022; font-weight:800;font-size:26px;box-shadow:0 10px 30px rgba(0,0,0,0.6); animation:float 5s ease-in-out infinite;}
-    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
-    h1{font-size:20px;color:#eaf7f5}
-    .subtitle{color:var(--muted);font-size:13px;margin-top:6px}
-    .nav{display:flex;gap:8px;flex-wrap:wrap}
-    .nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.02)}
-    .nav a.active{background:rgba(255,255,255,0.03); color:#e6fff7; border-color:rgba(255,255,255,0.06)}
-    .hero{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(2,6,23,0.6);}
-    .intro{font-size:16px;margin-bottom:12px;color:#dff6f0;line-height:1.5}
-    .typing{color:var(--accent); font-weight:700;}
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .chip{background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);color:#bfeae0;font-weight:600; font-size:13px; transition:transform .25s ease, box-shadow .25s ease;}
-    .chip:hover{transform:translateY(-6px); box-shadow:0 14px 30px rgba(17,24,31,0.6);}
+    *{box-sizing:border-box}
+    body{margin:0; min-height:100vh; background: radial-gradient(1200px 600px at 10% 10%, rgba(61,211,193,0.06), transparent 6%), linear-gradient(180deg,var(--bg-1),var(--bg-2)); color:#e6eef6; -webkit-font-smoothing:antialiased;}
+    .wrap{max-width:var(--maxw); margin:28px auto; padding:20px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .avatar{width:76px;height:76px;border-radius:14px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;color:#002b2a;font-weight:800;font-size:26px;box-shadow:0 12px 40px rgba(3,7,18,0.6); transform:translateY(0); animation:floaty 5s ease-in-out infinite;}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    h1{font-size:20px;margin:0}
+    .subtitle{color:var(--muted);font-size:13px}
+    nav{display:flex;gap:8px;flex-wrap:wrap}
+    .nav-btn{padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none;background:transparent;border:1px solid rgba(255,255,255,0.03);font-weight:600;cursor:pointer;transition:all .22s ease}
+    .nav-btn:hover{transform:translateY(-4px); border-color:rgba(255,255,255,0.06); color:var(--accent2)}
+    .nav-btn.active{background:linear-gradient(90deg, rgba(96,160,255,0.08), rgba(61,211,193,0.06)); color:var(--accent1); border-color:rgba(255,255,255,0.06)}
+    main{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+    .card{background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.01)); border-radius:14px;padding:18px;box-shadow:0 12px 36px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.03)}
+    .intro{font-size:16px;color:#dff6f0;line-height:1.5}
+    .typing{color:var(--accent1); font-weight:700}
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .chip{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); color:#c9fff6; font-weight:700; font-size:13px; transition:transform .18s ease, box-shadow .18s ease;}
+    .chip:hover{transform:translateY(-6px); box-shadow:0 16px 36px rgba(3,8,18,0.6);}
     .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
-    .proj{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px;border-radius:12px;transition:transform .25s ease, box-shadow .25s ease; border:1px solid rgba(255,255,255,0.03);}
-    .proj:hover{transform:translateY(-8px); box-shadow:0 18px 40px rgba(2,6,23,0.6);}
+    .proj{padding:14px;border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); transition:transform .22s ease, box-shadow .22s ease, background .22s ease;}
+    .proj:hover{transform:translateY(-10px) rotateX(2deg); box-shadow:0 20px 50px rgba(2,6,23,0.65); background:linear-gradient(180deg, rgba(96,160,255,0.03), rgba(61,211,193,0.02));}
     .muted{color:var(--muted);font-size:13px}
-    aside .meta{display:flex;flex-direction:column;gap:12px;}
-    .cta{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--accent);color:#042; font-weight:800;text-decoration:none}
-    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
-    @media (max-width:980px){ .hero{grid-template-columns:1fr} aside{order:-1} .projects{grid-template-columns:1fr} .avatar{width:64px;height:64px} }
+    .cta{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#022;font-weight:800;text-decoration:none;box-shadow:0 10px 30px rgba(61,211,193,0.06);border:none;cursor:pointer;transition:transform .14s ease}
+    .cta:active{transform:translateY(2px)}
+    aside .meta{display:flex;flex-direction:column;gap:12px}
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+    /* RESPONSIVE BUTTONS */
+    .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn-small{padding:8px 10px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);font-weight:700;cursor:pointer;transition:all .16s ease}
+    .btn-small:hover{transform:translateY(-6px); color:var(--accent2); border-color:rgba(255,255,255,0.06)}
+    /* small screens */
+    @media (max-width:980px){ main{grid-template-columns:1fr} aside{order:-1} .projects{grid-template-columns:1fr} .avatar{width:64px;height:64px} .nav-btn{padding:8px 8px} }
+    /* cool entrance animations */
+    .fade-in{opacity:0; transform:translateY(8px); animation:appear .5s forwards}
+    .delay-1{animation-delay:.08s} .delay-2{animation-delay:.16s} .delay-3{animation-delay:.24s}
+    @keyframes appear{to{opacity:1; transform:translateY(0)}}
+    /* typing */
+    .typewrap{display:inline-block; white-space:nowrap; overflow:hidden; border-right:.12em solid rgba(255,255,255,0.12); animation:caret .8s steps(1) infinite;}
+    @keyframes caret{50%{border-color:transparent}}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
+    <header class="fade-in delay-1">
       <div class="brand">
         <div class="avatar">NR</div>
         <div>
           <h1>Nithin Rajaseharan — Software Engineer</h1>
-          <div class="subtitle">Backend & Full Stack • Java · React.js · Node.js · PHP · Python · AWS</div>
+          <div class="subtitle">Full Stack • React · Node · Python · Java • Microservices</div>
         </div>
       </div>
-      <div class="nav">
-        <a href="#home" class="active">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#fit">Why this role</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <nav class="fade-in delay-2" id="topnav">
+        <button class="nav-btn active" data-target="home">Home</button>
+        <button class="nav-btn" data-target="projects">Projects</button>
+        <button class="nav-btn" data-target="fit">Why this role</button>
+        <button class="nav-btn" data-target="contact">Contact</button>
+      </nav>
     </header>
 
-    <main class="hero">
+    <main>
       <div>
-        <section id="home" class="card">
+        <section id="home" class="card fade-in delay-3">
           <div class="intro">
-            <div style="font-size:18px; margin-bottom:6px">Hi — I’m <strong style="color:var(--accent)">Nithin</strong>, a backend & full-stack engineer.</div>
-            <div>I build dependable backend services and responsive UIs. <span class="typing">React · APIs · Microservices</span></div>
+            <div style="font-size:18px;margin-bottom:6px">Hi — I’m <strong style="color:var(--accent1)">Nithin</strong>, a full-stack developer.</div>
+            <div>I build dependable backend services and responsive UIs. <span class="typing"><span id="type-text">React · Node · Microservices</span></span><span class="typewrap" id="cursor"></span></div>
           </div>
 
           <div class="skills" aria-hidden="true">
-            <div class="chip">Java</div><div class="chip">Spring Boot</div><div class="chip">Node.js</div><div class="chip">PHP</div><div class="chip">Python</div>
             <div class="chip">React.js</div><div class="chip">TypeScript</div><div class="chip">MUI · Tailwind</div><div class="chip">Redux · Zustand</div>
-            <div class="chip">MySQL</div><div class="chip">REST APIs · GraphQL</div><div class="chip">gRPC</div><div class="chip">Kafka</div>
-            <div class="chip">Docker</div><div class="chip">Kubernetes</div><div class="chip">AWS</div><div class="chip">CI/CD</div>
-            <div class="chip">Jest · PyTest</div><div class="chip">WebSockets</div><div class="chip">SSR (Next.js)</div>
+            <div class="chip">Node.js (Express/Nest)</div><div class="chip">Python (Flask/FastAPI)</div><div class="chip">Java · Spring Boot</div><div class="chip">REST · GraphQL</div>
+            <div class="chip">JWT · OAuth2</div><div class="chip">PostgreSQL</div><div class="chip">MongoDB</div><div class="chip">Redis</div>
+            <div class="chip">Docker · Kubernetes</div><div class="chip">CI/CD · GitHub Actions</div><div class="chip">AWS · GCP</div><div class="chip">Jest · PyTest</div>
+            <div class="chip">Next.js (SSR)</div><div class="chip">WebSockets</div>
           </div>
 
           <div style="margin-top:14px;">
@@ -79,58 +99,105 @@
             <p class="muted"><strong>Software Developer — 411 Locals</strong> <span class="muted"> (May 2024 – Present)</span></p>
             <ul style="margin-top:8px;color:#dff6f0;line-height:1.6">
               <li>Built a <strong>Payment Portal</strong> integrated with CRM for transactions and invoicing; modularized backend services for payment workflows.</li>
-              <li>Optimized CRM modules, reducing page load times by ~30% through query tuning and caching.</li>
-              <li>Collaborated with designers to improve front-end responsiveness and implemented state optimizations on large CRM list pages.</li>
-              <li>Designed a resilient <strong>Cadence Workflow</strong> with resumable stages; improved sales efficiency by ~20%.</li>
-              <li>Adopted Docker + CI/CD for service deployments and added unit/integration tests to increase release confidence.</li>
+              <li>Implemented front-end improvements and state optimizations for CRM list pages, improving perceived load and responsiveness.</li>
+              <li>Designed a resilient <strong>Cadence Workflow</strong> with resumable stages and retention logic; improved sales efficiency by ~20%.</li>
+              <li>Adopted Docker + CI/CD pipelines, wrote integration tests, and improved release reliability.</li>
             </ul>
+
+            <div class="btn-row">
+              <a class="cta" href="https://github.com/NithinR20039" target="_blank">View GitHub</a>
+              <a class="btn-small" href="mailto:nithinrajaseharan@gmail.com">Email</a>
+              <a class="btn-small" href="https://www.linkedin.com/in/nithin-rajaseharan-b5587028b/" target="_blank">LinkedIn</a>
+            </div>
           </div>
         </section>
 
-        <section id="projects" class="card" style="margin-top:14px">
+        <section id="projects" class="card fade-in" style="margin-top:14px; display:none;">
           <h4 style="margin-bottom:10px">Selected projects</h4>
           <div class="projects">
             <div class="proj">
               <strong>Payment Portal – Bitrix24 CRM Integration</strong>
-              <p class="muted" style="margin-top:6px">Modular backend and integrated UI for payments, invoicing, and reporting. Improved SQL performance and caching.</p>
+              <p class="muted" style="margin-top:6px">Modular services (payments, invoicing, reporting) with REST APIs, JWT auth for secure transactions, caching and SQL tuning for high throughput.</p>
             </div>
             <div class="proj">
               <strong>Company List Page Optimization</strong>
-              <p class="muted" style="margin-top:6px">Enhanced UX for large datasets with optimized queries, client-side state handling, and responsive UI tweaks.</p>
+              <p class="muted" style="margin-top:6px">Improved listing UX with server-side paging, client-side state management and responsive UI adjustments for large datasets.</p>
             </div>
             <div class="proj">
               <strong>SPA Cadence Workflow</strong>
-              <p class="muted" style="margin-top:6px">Resumable cadence engine with retention logic; front-end SPA built with modern JS patterns for smooth UX.</p>
+              <p class="muted" style="margin-top:6px">Resumable cadence engine; front-end SPA using modern patterns, combined with backend services for scheduling and retention logic.</p>
             </div>
             <div class="proj">
               <strong>DSA Solutions (Java)</strong>
-              <p class="muted" style="margin-top:6px">Collection of solved algorithm and data-structure problems demonstrating CS fundamentals.</p>
+              <p class="muted" style="margin-top:6px">A curated set of algorithm and data-structure solutions demonstrating coding fundamentals and problem-solving.</p>
             </div>
           </div>
         </section>
 
-        <section id="fit" class="card" style="margin-top:14px">
+        <section id="fit" class="card fade-in" style="margin-top:14px; display:none;">
           <h4 style="margin-bottom:8px">Why I'm a good fit</h4>
           <div class="muted" style="line-height:1.6">
-            I enjoy designing reliable backend systems and building front-end interfaces that users love. My work has spanned backend modularization, Docker deployments, and database tuning, as well as React.js UI improvements and state optimizations. I’m comfortable across the stack and eager to take ownership of end-to-end web application delivery, from design to production.
+            I work across frontend and backend: building React interfaces (TypeScript, MUI/Tailwind, Redux) and designing Node/Python services. I prioritize scalable architecture, testability, and observability. I’m motivated by product-driven engineering and enjoy mentoring and code quality improvements.
+          </div>
+        </section>
+
+        <section id="contact" class="card fade-in" style="margin-top:14px; display:none;">
+          <h4 style="margin-bottom:8px">Contact</h4>
+          <div class="muted" style="line-height:1.6">
+            Email: <a href="mailto:nithinrajaseharan@gmail.com" style="color:var(--accent1)">nithinrajaseharan@gmail.com</a><br/>
+            Phone: <a href="tel:+917339618222" style="color:var(--accent1)">+91 7339618222</a><br/>
+            GitHub: <a href="https://github.com/NithinR20039" style="color:var(--accent1)">github.com/NithinR20039</a><br/>
+            LinkedIn: <a href="https://www.linkedin.com/in/nithin-rajaseharan-b5587028b/" style="color:var(--accent1)">linkedin.com/in/nithin-rajaseharan</a>
           </div>
         </section>
       </div>
 
-      <aside>
-        <div class="card meta">
-          <h4 style="margin-bottom:8px">Contact</h4>
-          <p class="muted">Email: <a href="mailto:nithinrajaseharan@gmail.com" style="color:var(--accent)">nithinrajaseharan@gmail.com</a></p>
-          <p class="muted">Phone: <a href="tel:+917339618222" style="color:var(--accent)">+91 7339618222</a></p>
-          <p class="muted">GitHub: <a href="https://github.com/NithinR20039" style="color:var(--accent)">github.com/NithinR20039</a></p>
-          <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/nithin-rajaseharan-b5587028b/" style="color:var(--accent)">linkedin.com/in/nithin-rajaseharan</a></p>
+      <aside style="padding-left:12px">
+        <div class="card meta fade-in delay-2">
+          <h4 style="margin-bottom:8px">Quick info</h4>
+          <p class="muted">Open to backend & full-stack roles • Based in Coimbatore, India • Immediate joiner</p>
+          <h4 style="margin-top:12px">Tech highlights</h4>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+            <div class="chip">Microservices</div><div class="chip">Docker</div><div class="chip">CI/CD</div><div class="chip">Observability</div>
+          </div>
         </div>
       </aside>
     </main>
 
     <footer>
-      <p>Portfolio updated — now highlighting frontend + backend skills. ✨</p>
+      <p style="color:var(--muted);font-size:13px">Built with HTML/CSS — portfolio reflects frontend + backend skills. Reach out for code links or a live walkthrough.</p>
     </footer>
   </div>
+
+  <script>
+    // typing animation
+    const words = ['React', 'Node', 'Microservices', 'APIs'];
+    let wi = 0, pos = 0, forward = true;
+    const el = document.getElementById('type-text');
+    const cursor = document.getElementById('cursor');
+    function typeLoop(){
+      const w = words[wi];
+      if(forward){ pos++; el.textContent = w.slice(0,pos); if(pos===w.length){ forward=false; setTimeout(typeLoop,800); return; } }
+      else{ pos--; el.textContent = w.slice(0,pos); if(pos===0){ forward=true; wi=(wi+1)%words.length; setTimeout(typeLoop,250); return; } }
+      setTimeout(typeLoop,70);
+    }
+    typeLoop();
+
+    // SPA nav
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const sections = { home:document.getElementById('home'), projects:document.getElementById('projects'), fit:document.getElementById('fit'), contact:document.getElementById('contact') };
+    navBtns.forEach(b=> b.addEventListener('click', ()=>{
+      navBtns.forEach(x=> x.classList.remove('active'));
+      b.classList.add('active');
+      const t = b.dataset.target;
+      Object.keys(sections).forEach(k => { sections[k].style.display = (k===t? 'block':'none'); });
+      sections[t].scrollIntoView({behavior:'smooth', block:'start'});
+    }));
+
+    // make nav buttons responsive: convert to small screen active state on scroll
+    window.addEventListener('scroll', ()=>{
+      // optional: add sticky effect
+    });
+  </script>
 </body>
 </html>
