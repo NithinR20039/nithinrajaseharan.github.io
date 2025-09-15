@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nithin Rajaseharan — Software Engineer</title>
+  <style>
+    /* Minimal, clean styles */
+    :root{
+      --accent:#0b84ff;
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --maxw:900px;
+      --radius:10px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{background:var(--bg); margin:0; color:#111;}
+    .wrap{max-width:var(--maxw); margin:36px auto; padding:20px;}
+    header{display:flex; gap:20px; align-items:center;}
+    .avatar{width:84px; height:84px; border-radius:12px; background:linear-gradient(135deg,#e6f0ff,#fff); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--accent); font-size:28px;}
+    .title h1{margin:0; font-size:22px;}
+    .title p{margin:6px 0 0; color:var(--muted); font-size:14px;}
+    .card{background:var(--card); padding:18px; border-radius:var(--radius); box-shadow:0 6px 18px rgba(15,23,42,0.06); margin-top:18px;}
+    .section{margin-top:18px;}
+    .skills{display:flex; flex-wrap:wrap; gap:8px;}
+    .skill{background:#f1f6ff; color:#024; padding:8px 10px; border-radius:8px; font-size:13px;}
+    .two-col{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+    .job-title{font-weight:700;}
+    .muted{color:var(--muted);}
+    a{color:var(--accent); text-decoration:none;}
+    .projects ul, .experience ul{padding-left:18px;}
+    footer{margin-top:22px; color:var(--muted); font-size:13px;}
+    @media (max-width:700px){ .two-col{grid-template-columns:1fr;} header{flex-direction:column; align-items:flex-start;} .avatar{width:72px;height:72px;font-size:24px;} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar">NR</div>
+      <div class="title">
+        <h1>Nithin Rajaseharan — Software Engineer</h1>
+        <p class="muted">Backend developer • Java, Node.js, PHP • MySQL • Cloud (AWS) • Microservices</p>
+        <p style="margin-top:8px;"><a href="mailto:nithinrajaseharan@gmail.com">nithinrajaseharan@gmail.com</a> • <a href="tel:+917339618222">+91 7339618222</a> • <a href="https://www.linkedin.com/in/nithin-rajaseharan-b5587028b/">LinkedIn</a></p>
+      </div>
+    </header>
+
+    <div class="card">
+      <h3>About</h3>
+      <p class="muted">Software Engineer with 1 year of professional experience at 411 Locals, specializing in backend development, CRM optimization, and scalable web applications. I focus on building reliable backend services, optimizing database performance, and applying microservice design principles.</p>
+
+      <div class="section">
+        <h4>Skills & Technologies</h4>
+        <div class="skills">
+          <div class="skill">Java</div>
+          <div class="skill">Spring Boot</div>
+          <div class="skill">Node.js</div>
+          <div class="skill">PHP</div>
+          <div class="skill">Python</div>
+          <div class="skill">MySQL</div>
+          <div class="skill">REST APIs</div>
+          <div class="skill">gRPC (familiar)</div>
+          <div class="skill">Kafka (familiar)</div>
+          <div class="skill">Docker</div>
+          <div class="skill">Kubernetes (familiar)</div>
+          <div class="skill">AWS</div>
+          <div class="skill">CI/CD</div>
+        </div>
+      </div>
+
+      <div class="section two-col">
+        <div>
+          <h4>Experience</h4>
+          <div class="experience">
+            <p class="job-title">Software Developer — 411 Locals <span class="muted"> (May 2024 – Present) </span></p>
+            <ul>
+              <li>Built and optimized a <b>Payment Portal</b> integrated with the CRM to handle transactions and invoicing, and implemented modular backend services for payment workflows.</li>
+              <li>Optimized Bitrix24 CRM modules, improving page load times by <b>~30%</b> through query tuning, client-side caching, and backend refactoring.</li>
+              <li>Designed an automated <b>Cadence Workflow</b> system with modular components for scheduling, retention, and escalations; improved sales efficiency by ~20%.</li>
+              <li>Refactored backend logic into independent service layers and used Docker + CI/CD pipelines for deployments, reducing server response times by ~40%.</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <h4>Education & Certificates</h4>
+          <p><b>B.Tech — Computer & Communication Engineering</b><br>Amrita School of Engineering (CGPA: 7.22/10)</p>
+          <p class="muted">Certificates:</p>
+          <ul>
+            <li>Guide to DSA (Udemy)</li>
+            <li>Build Responsive Real-World Websites with HTML and CSS (Udemy)</li>
+            <li>The Complete Python Bootcamp 2023 (Udemy)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section projects">
+        <h4>Selected Projects</h4>
+        <ul>
+          <li><b>Payment Portal – Bitrix24 CRM Integration</b><br class="muted">Designed and developed modular backend services with REST APIs for transactions, invoicing and billing; optimized MySQL queries and caching to handle high transaction loads.</li>
+          <li><b>Company List Page Optimization (Bitrix24)</b><br class="muted">Resolved performance issues in CRM listing pages by reducing redundant server processing and improving client-side state handling.</li>
+          <li><b>SPA Cadence Workflow</b><br class="muted">Implemented end-to-end cadence automation with resumable workflows, retention logic, and optimized SQL checks for deal age and assignment.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h4>Getting my code online</h4>
+        <p class="muted">I am preparing GitHub repositories for these projects and will share links soon. In the meantime, feel free to review my LinkedIn or reach out via email.</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>Ready to share this site on GitHub Pages. Want me to generate the GitHub repo files for you so you can upload them directly?</p>
+    </footer>
+
+  </div>
+</body>
+</html>
