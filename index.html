@@ -4,185 +4,133 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nithin Rajaseharan — Software Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f4f7fb; --card:#ffffff; --muted:#6b7280; --accent:#0b84ff;
-      --glass: rgba(255,255,255,0.7);
-      --radius:14px; --maxw:980px;
+      --bg1:#0f1724; --bg2:#071029;
+      --card:#0f1724; --muted:#94a3b8; --accent:#3dd3c1;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-    *{box-sizing:border-box}
-    body{margin:0; background:linear-gradient(180deg,#f7fbff 0%, #f4f7fb 100%); color:#0f1724; -webkit-font-smoothing:antialiased;}
-    .container{max-width:var(--maxw); margin:28px auto; padding:20px;}
-    header{display:flex; align-items:center; justify-content:space-between; gap:16px;}
-    .brand{display:flex; gap:16px; align-items:center;}
-    .avatar{width:64px; height:64px; border-radius:10px; background:linear-gradient(135deg,#eaf4ff,#ffffff); display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:24px; box-shadow:0 6px 18px rgba(11,132,255,0.06);}
-    h1{font-size:20px; margin:0;}
-    .subtitle{color:var(--muted); font-size:13px; margin-top:6px;}
-    nav{display:flex; gap:10px;}
-    .nav-link{padding:8px 12px; border-radius:10px; color:var(--muted); font-weight:600; cursor:pointer; text-decoration:none;}
-    .nav-link.active{background:linear-gradient(90deg, rgba(11,132,255,0.12), rgba(11,132,255,0.06)); color:var(--accent);}
-    main{margin-top:20px; display:grid; grid-template-columns: 1fr 360px; gap:22px;}
-    .card{background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:0 10px 30px rgba(15,23,42,0.06);}
-    .about p{color:var(--muted); line-height:1.6;}
-    .skills{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
-    .skill{background:#eef6ff;border-radius:999px;padding:8px 10px;font-size:13px;color:#024;}
-    .two-col{display:flex; gap:12px; align-items:flex-start;}
-    .section-title{font-weight:700; margin:0 0 10px 0;}
-    .experience ul, .projects ul{padding-left:18px; color:#0f1724;}
-    footer{margin-top:18px; color:var(--muted); font-size:13px; text-align:center;}
-    
-    /* Right column (contact / quick links) */
-    aside .meta{display:flex; flex-direction:column; gap:10px;}
-    .meta a{display:block;color:var(--accent); text-decoration:none;}
-    .cta{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;font-weight:600;text-decoration:none; margin-top:6px;}
-    
-    /* Sections (single-page) */
-    section{display:none; opacity:0; transform:translateY(8px); transition: all .35s ease;}
-    section.active{display:block; opacity:1; transform:translateY(0);}
-    
-    /* Simple animated underline for titles */
-    .title-underline{position:relative; display:inline-block;}
-    .title-underline::after{content:''; position:absolute; left:0; bottom:-6px; height:4px; width:0; background:linear-gradient(90deg,var(--accent), #7cc3ff); border-radius:4px; transition:width .4s ease;}
-    .title-underline:hover::after{width:100%;}
-    
-    /* Projects cards */
-    .proj{border-radius:10px;padding:12px;background:linear-gradient(180deg,#ffffff,#fbfeff);box-shadow:0 6px 18px rgba(11,132,255,0.04);margin-bottom:10px;}
-    .muted{color:var(--muted); font-size:13px;}
-    
-    /* subtle floating animation for avatar */
-    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-    .avatar{animation:floaty 4s ease-in-out infinite;}
-    
-    /* responsive */
-    @media (max-width:980px){ main{grid-template-columns:1fr;} aside{order:-1} nav{display:none} header{flex-direction:column;align-items:flex-start;gap:12px}}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#e6eef6; min-height:100vh; -webkit-font-smoothing:antialiased;}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px;}
+    header{display:flex;align-items:center;justify-content:space-between; gap:16px; margin-bottom:18px;}
+    .brand{display:flex;gap:16px;align-items:center}
+    .avatar{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#8ee7d6, #60a0ff);display:flex;align-items:center;justify-content:center;color:#022; font-weight:800;font-size:26px;box-shadow:0 10px 30px rgba(0,0,0,0.6); animation:float 5s ease-in-out infinite;}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    h1{font-size:20px;color:#eaf7f5}
+    .subtitle{color:var(--muted);font-size:13px;margin-top:6px}
+    .nav{display:flex;gap:8px;flex-wrap:wrap}
+    .nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.02)}
+    .nav a.active{background:rgba(255,255,255,0.03); color:#e6fff7; border-color:rgba(255,255,255,0.06)}
+    .hero{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(2,6,23,0.6);}
+    .intro{font-size:16px;margin-bottom:12px;color:#dff6f0;line-height:1.5}
+    .typing{color:var(--accent); font-weight:700;}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);color:#bfeae0;font-weight:600; font-size:13px; transition:transform .25s ease, box-shadow .25s ease;}
+    .chip:hover{transform:translateY(-6px); box-shadow:0 14px 30px rgba(17,24,31,0.6);}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+    .proj{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px;border-radius:12px;transition:transform .25s ease, box-shadow .25s ease; border:1px solid rgba(255,255,255,0.03);}
+    .proj:hover{transform:translateY(-8px); box-shadow:0 18px 40px rgba(2,6,23,0.6);}
+    .muted{color:var(--muted);font-size:13px}
+    aside .meta{display:flex;flex-direction:column;gap:12px;}
+    .cta{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--accent);color:#042; font-weight:800;text-decoration:none}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+    @media (max-width:980px){ .hero{grid-template-columns:1fr} aside{order:-1} .projects{grid-template-columns:1fr} .avatar{width:64px;height:64px} }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
     <header>
       <div class="brand">
         <div class="avatar">NR</div>
         <div>
           <h1>Nithin Rajaseharan — Software Engineer</h1>
-          <div class="subtitle">Backend developer • Java · Node.js · PHP · MySQL · AWS · Microservices</div>
+          <div class="subtitle">Backend & Full Stack • Java · React.js · Node.js · PHP · Python · AWS</div>
         </div>
       </div>
-      <nav id="nav">
-        <a class="nav-link active" data-target="home">Home</a>
-        <a class="nav-link" data-target="projects">Projects</a>
-        <a class="nav-link" data-target="fit">Why this role</a>
-        <a class="nav-link" data-target="contact">Contact</a>
-      </nav>
+      <div class="nav">
+        <a href="#home" class="active">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#fit">Why this role</a>
+        <a href="#contact">Contact</a>
+      </div>
     </header>
 
-    <main>
+    <main class="hero">
       <div>
-        <!-- Home -->
-        <section id="home" class="active card">
-          <h3 class="title-underline">About</h3>
-          <div class="about" style="margin-top:8px;">
-            <p>Software Engineer with 1 year of experience at 411 Locals. I build backend services, optimize database performance, and apply modular design practices to keep systems maintainable and efficient. Recent work includes a Payment Portal and CRM workflow automation.</p>
-            <div class="skills" aria-hidden="true">
-              <div class="skill">Java</div><div class="skill">Spring Boot</div><div class="skill">Node.js</div><div class="skill">PHP</div><div class="skill">Python</div><div class="skill">MySQL</div><div class="skill">REST APIs</div><div class="skill">gRPC (familiar)</div><div class="skill">Kafka (familiar)</div><div class="skill">Docker</div><div class="skill">Kubernetes (familiar)</div><div class="skill">AWS</div><div class="skill">CI/CD</div>
-            </div>
+        <section id="home" class="card">
+          <div class="intro">
+            <div style="font-size:18px; margin-bottom:6px">Hi — I’m <strong style="color:var(--accent)">Nithin</strong>, a backend & full-stack engineer.</div>
+            <div>I build dependable backend services and responsive UIs. <span class="typing">React · APIs · Microservices</span></div>
           </div>
 
-          <div style="margin-top:18px;">
-            <h4 class="section-title">Experience</h4>
-            <div class="experience">
-              <p class="job-title">Software Developer — 411 Locals <span class="muted"> (May 2024 – Present)</span></p>
-              <ul>
-                <li>Built a <b>Payment Portal</b> integrated with the CRM to handle transactions and invoicing; implemented modular services for payment workflows.</li>
-                <li>Optimized Bitrix24 CRM modules—query tuning, client-side caching, and backend refactoring—improving page loads by ~30%.</li>
-                <li>Designed an automated <b>Cadence Workflow</b> with resumable stages and retention logic, improving sales efficiency by ~20%.</li>
-                <li>Refactored backend logic into independent service layers and used Docker + CI/CD for deployments, reducing response time by ~40%.</li>
-              </ul>
-            </div>
+          <div class="skills" aria-hidden="true">
+            <div class="chip">Java</div><div class="chip">Spring Boot</div><div class="chip">Node.js</div><div class="chip">PHP</div><div class="chip">Python</div>
+            <div class="chip">React.js</div><div class="chip">TypeScript</div><div class="chip">MUI · Tailwind</div><div class="chip">Redux · Zustand</div>
+            <div class="chip">MySQL</div><div class="chip">REST APIs · GraphQL</div><div class="chip">gRPC</div><div class="chip">Kafka</div>
+            <div class="chip">Docker</div><div class="chip">Kubernetes</div><div class="chip">AWS</div><div class="chip">CI/CD</div>
+            <div class="chip">Jest · PyTest</div><div class="chip">WebSockets</div><div class="chip">SSR (Next.js)</div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <h4 style="margin-bottom:8px">Experience</h4>
+            <p class="muted"><strong>Software Developer — 411 Locals</strong> <span class="muted"> (May 2024 – Present)</span></p>
+            <ul style="margin-top:8px;color:#dff6f0;line-height:1.6">
+              <li>Built a <strong>Payment Portal</strong> integrated with CRM for transactions and invoicing; modularized backend services for payment workflows.</li>
+              <li>Optimized CRM modules, reducing page load times by ~30% through query tuning and caching.</li>
+              <li>Collaborated with designers to improve front-end responsiveness and implemented state optimizations on large CRM list pages.</li>
+              <li>Designed a resilient <strong>Cadence Workflow</strong> with resumable stages; improved sales efficiency by ~20%.</li>
+              <li>Adopted Docker + CI/CD for service deployments and added unit/integration tests to increase release confidence.</li>
+            </ul>
           </div>
         </section>
 
-        <!-- Projects -->
-        <section id="projects" class="card">
-          <h3 class="title-underline">Selected Projects</h3>
-          <div style="margin-top:12px">
+        <section id="projects" class="card" style="margin-top:14px">
+          <h4 style="margin-bottom:10px">Selected projects</h4>
+          <div class="projects">
             <div class="proj">
               <strong>Payment Portal – Bitrix24 CRM Integration</strong>
-              <p class="muted">Modular backend services with REST APIs for transactions and invoicing. Improved query performance and caching to handle high transaction volumes.</p>
+              <p class="muted" style="margin-top:6px">Modular backend and integrated UI for payments, invoicing, and reporting. Improved SQL performance and caching.</p>
             </div>
             <div class="proj">
-              <strong>Company List Page Optimization (Bitrix24)</strong>
-              <p class="muted">Reduced redundant server processing, implemented client-side state persistence, and optimized grid rendering for large datasets.</p>
+              <strong>Company List Page Optimization</strong>
+              <p class="muted" style="margin-top:6px">Enhanced UX for large datasets with optimized queries, client-side state handling, and responsive UI tweaks.</p>
             </div>
             <div class="proj">
               <strong>SPA Cadence Workflow</strong>
-              <p class="muted">End-to-end cadence automation with resumable workflows and optimized SQL checks for deal age and assignment.</p>
+              <p class="muted" style="margin-top:6px">Resumable cadence engine with retention logic; front-end SPA built with modern JS patterns for smooth UX.</p>
+            </div>
+            <div class="proj">
+              <strong>DSA Solutions (Java)</strong>
+              <p class="muted" style="margin-top:6px">Collection of solved algorithm and data-structure problems demonstrating CS fundamentals.</p>
             </div>
           </div>
         </section>
 
-        <!-- Why this role (tailored, subtle) -->
-        <section id="fit" class="card">
-          <h3 class="title-underline">Why I'm a good fit</h3>
-          <div style="margin-top:10px;" class="muted">
-            <p>I enjoy building backend systems that are reliable and easy to maintain. My work at 411 Locals required designing modular services, building and documenting REST APIs, and improving system performance under real user load.</p>
-            <p>For roles that focus on React/Node/Python or Java-based backend work, I bring hands-on experience with server-side APIs, Docker-based deployments, CI/CD pipelines and database optimizations. I also mentor peers and handle end-to-end delivery—from design to production releases.</p>
-            <p>I'm excited about opportunities where I can contribute to scalable systems and learn technologies like Spring Boot, Kafka and deeper distributed-system patterns.</p>
-          </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="card">
-          <h3 class="title-underline">Contact</h3>
-          <div style="margin-top:10px;">
-            <p class="muted">Email: <a href="mailto:nithinrajaseharan@gmail.com">nithinrajaseharan@gmail.com</a></p>
-            <p class="muted">Phone: <a href="tel:+917339618222">+91 7339618222</a></p>
-            <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/nithin-rajaseharan-b5587028b/">linkedin.com/in/nithin-rajaseharan</a></p>
-            <a class="cta" href="https://github.com/NithinR20039" target="_blank">View GitHub (coming soon)</a>
+        <section id="fit" class="card" style="margin-top:14px">
+          <h4 style="margin-bottom:8px">Why I'm a good fit</h4>
+          <div class="muted" style="line-height:1.6">
+            I enjoy designing reliable backend systems and building front-end interfaces that users love. My work has spanned backend modularization, Docker deployments, and database tuning, as well as React.js UI improvements and state optimizations. I’m comfortable across the stack and eager to take ownership of end-to-end web application delivery, from design to production.
           </div>
         </section>
       </div>
 
       <aside>
         <div class="card meta">
-          <div>
-            <h4 class="section-title">Quick info</h4>
-            <p class="muted">Open to backend & full-stack roles. Based in Coimbatore, India. Immediate joiner.</p>
-          </div>
-          <div style="margin-top:12px;">
-            <h4 class="section-title">Profile</h4>
-            <p class="muted">B.Tech (Computer & Communication Engineering), Amrita School of Engineering</p>
-          </div>
-          <div style="margin-top:12px;">
-            <h4 class="section-title">Tech highlights</h4>
-            <div class="skills" style="margin-top:6px;">
-              <div class="skill">Microservices</div><div class="skill">Docker</div><div class="skill">CI/CD</div><div class="skill">Observability</div>
-            </div>
-          </div>
+          <h4 style="margin-bottom:8px">Contact</h4>
+          <p class="muted">Email: <a href="mailto:nithinrajaseharan@gmail.com" style="color:var(--accent)">nithinrajaseharan@gmail.com</a></p>
+          <p class="muted">Phone: <a href="tel:+917339618222" style="color:var(--accent)">+91 7339618222</a></p>
+          <p class="muted">GitHub: <a href="https://github.com/NithinR20039" style="color:var(--accent)">github.com/NithinR20039</a></p>
+          <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/nithin-rajaseharan-b5587028b/" style="color:var(--accent)">linkedin.com/in/nithin-rajaseharan</a></p>
         </div>
       </aside>
     </main>
 
     <footer>
-      <p>Made with focus on backend engineering. GitHub repos will be available soon — happy to share links on request.</p>
+      <p>Portfolio updated — now highlighting frontend + backend skills. ✨</p>
     </footer>
   </div>
-
-  <script>
-    // Simple SPA navigation
-    const links = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
-    links.forEach(l => l.addEventListener('click', ()=>{
-      links.forEach(x=>x.classList.remove('active'));
-      l.classList.add('active');
-      const t = l.dataset.target;
-      sections.forEach(s=>{
-        if(s.id===t){ s.classList.add('active'); s.scrollIntoView({behavior:'smooth', block:'center'}); }
-        else s.classList.remove('active');
-      });
-    }));
-  </script>
 </body>
 </html>
